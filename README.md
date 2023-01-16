@@ -27,6 +27,13 @@ py -m pip install jsonschema
 
 ```
 
+## Configuración
+
+En el archivo index.py configurar tus llaves:
+
+- public_key = "`TU LLAVE PK DE INTEGRACIÓN`"
+- private_key = "`TU LLAVE SK DE INTEGRACIÓN`"
+
 ## Inicializar del proyecto
 
 Ejecutar el siguiente comando:
@@ -37,7 +44,7 @@ py index.py
 
 ## Probar la demo
 
-Para poder visualizar el formulario de pago de la demo ingresar a la siguiente URL:
+Para poder visualizar el frontend de la demo ingresar a la siguiente URL:
 
 - Para probar cargos: `http://localhost:5000`
 - Para probar creación de cards: `http://localhost:5000/cards`
