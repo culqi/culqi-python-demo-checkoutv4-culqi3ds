@@ -1,57 +1,43 @@
-<img src="resources/logo.png" style="float: right;" />
+# DEMO - Culqi Python + Checkout V4 + Culqi 3DS
 
-# Culqi Python
 
-[![Build Status](https://travis-ci.org/culqi/culqi-python.svg?branch=master)](https://travis-ci.org/culqi/culqi-python)
-![](https://img.shields.io/pypi/pyversions/Culqi)
-![](https://img.shields.io/pypi/l/culqi)
-![](https://img.shields.io/pypi/v/culqi)
-
-<br/><br/>
-
-Biblioteca de CULQI para el lenguaje Python, pagos simples en tu sitio web. 
+La demo integra Culqi Python, Checkout V4 , Culqi 3DS y es compatible con la v2.0 del Culqi API, con esta demo podrás genera token, cargos, clientes, card.
 
 ## Requisitos
 
-- Python 2.7, 3.5, 3.6, 3.7, 3.8-dev
-- Credenciales de comercio en [Culqi](https://culqi.com).
+* Python 2.7+
+* Afiliate [aquí](https://afiliate.culqi.com/).
+* Si vas a realizar pruebas obtén tus llaves desde [aquí](https://integ-panel.culqi.com/#/registro), si vas a realizar transacciones reales obtén tus llaves desde [aquí](https://panel.culqi.com/#/registro) (1).
+
+> Recuerda que para obtener tus llaves debes ingresar a tu CulqiPanel > Desarrollo > ***API Keys***.
+
+![alt tag](http://i.imgur.com/NhE6mS9.png)
+
+> Recuerda que las credenciales son enviadas al correo que registraste en el proceso de afiliación.
 
 ## Instalación
 
+Ejecuta los siguientes comandos:
+
 ```bash
-pip install culqi 
+py -m pip install pytest
+py -m pip install python-dotenv
+py -m pip install culqi
+py -m pip install jsonschema
+
 ```
 
-![](/resources/carbon.png)
+## Inicializar del proyecto
 
+Ejecutar el siguiente comando:
 
-Cada metodo retona un diccionario con la estructura
-
-```python
-{
-      "status": status_code,
-      "data": data
-}
+```bash
+py index.py
 ```
 
-El `status_code` es el estatus HTTP numérico devuelto por la solicitud HTTP que se
-realiza al API de Culqi, y `data` contiene el cuerpo de la respuesta obtenida.
+## Probar la demo
 
+Para poder visualizar el formulario de pago de la demo ingresar a la siguiente URL:
 
-## Documentación
-
-- [Referencia de API](https://www.culqi.com/api/)
-- [Ejemplos](https://github.com/culqi/culqi-python/wiki)
-- [Wiki](https://github.com/culqi/culqi-python/wiki)
-
-
-
-## Changelog
-
-Todos los cambios en las versiones de esta biblioteca están listados en
-[CHANGELOG.md](CHANGELOG.md).
-
-## Desarrollo
-[Revisa nuestra guia de contribución](CONTRIBUTING.md)
-
-## Contribuidores
+- Para probar cargos: `http://localhost:5000`
+- Para probar creación de cards: `http://localhost:5000/cards`
