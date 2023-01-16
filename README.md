@@ -24,12 +24,11 @@ py -m pip install pytest
 py -m pip install python-dotenv
 py -m pip install culqi
 py -m pip install jsonschema
-
 ```
 
 ## Configuración
 
-En el archivo index.py configurar tus llaves:
+En el archivo **index.py** coloca tus llaves:
 
 - public_key = "`TU LLAVE PK DE INTEGRACIÓN`"
 - private_key = "`TU LLAVE SK DE INTEGRACIÓN`"
