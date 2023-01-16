@@ -1,7 +1,7 @@
 # DEMO - Culqi Python + Checkout V4 + Culqi 3DS
 
 
-La demo integra Culqi Python, Checkout V4 , Culqi 3DS y es compatible con la v2.0 del Culqi API, con esta demo podrás genera token, cargos, clientes, card.
+La demo integra Culqi Python, Checkout V4 , Culqi 3DS y es compatible con la v2.0 del Culqi API, con esta demo podrás generar token, cargos, clientes, card.
 
 ## Requisitos
 
@@ -34,7 +34,7 @@ En el archivo index.py configurar tus llaves:
 - public_key = "`TU LLAVE PK DE INTEGRACIÓN`"
 - private_key = "`TU LLAVE SK DE INTEGRACIÓN`"
 
-## Inicializar del proyecto
+## Inicializar la demo
 
 Ejecutar el siguiente comando:
 
