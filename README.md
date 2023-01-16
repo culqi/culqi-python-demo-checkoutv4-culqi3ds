@@ -20,10 +20,9 @@ La demo integra Culqi Python, Checkout V4 , Culqi 3DS y es compatible con la v2.
 Ejecuta los siguientes comandos:
 
 ```bash
-py -m pip install pytest
-py -m pip install python-dotenv
 py -m pip install culqi
-py -m pip install jsonschema
+py -m pip install flask
+py -m pip install flask_restful
 ```
 
 ## Configuración
