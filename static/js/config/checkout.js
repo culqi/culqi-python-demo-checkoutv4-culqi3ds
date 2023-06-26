@@ -2,7 +2,13 @@ import config from "./index.js";
 
 const culqiConfig = () => {
 
-  Culqi.publicKey = config.PUBLIC_KEY;
+Culqi.publicKey = config.PUBLIC_KEY;
+
+xculqirsaid: 'INSERTE_SU_RSA_ID';
+rsapublickey: 'INSERTE_SU_LLAVE_RSA';
+
+excludencryptoperations: [''];
+
   Culqi.settings({
     currency: config.CURRENCY,
     amount: config.TOTAL_AMOUNT,
