@@ -4,17 +4,16 @@ const culqiConfig = () => {
 
 Culqi.publicKey = config.PUBLIC_KEY;
 
-xculqirsaid: 'INSERTE_SU_RSA_ID';
-rsapublickey: 'INSERTE_SU_LLAVE_RSA';
-
-excludencryptoperations: [''];
 
   Culqi.settings({
     currency: config.CURRENCY,
     amount: config.TOTAL_AMOUNT,
     title: 'TAXI MAXIN', //Obligatorio para yape
     culqiclient: 'magento',
-    culqiclientversion: '3.0'
+    culqiclientversion: '3.0',
+    xculqirsaid: 'INSERTE_SU_RSA_ID',
+    rsapublickey: 'INSERTE_SU_LLAVE_RSA',
+    excludencryptoperations: [''],
   });
 
   Culqi.options({
