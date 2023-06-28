@@ -30,28 +30,7 @@ window.addEventListener("message", async function (event) {
         resultdivCard("CARGO FALLIDA");
         Culqi3DS.reset();
       }
-    }else {
-          const responseCard = await generateChargeImpl({
-            tokenId,
-            email,
-            parameters3DS,
-          }); //2da llamada a creacion de CARD, validacion de 1 sol
-          statusCode = responseCard.statusCode;
-     }
-      if (statusCode === 201) {
-          if (objRespone == "charge") {
-            $("#response_card").text("COMPRA REALIZADA EXITOSAMENTE");
-          } else {
-            $("#response_card").text("TARJETA CREADA EXITOSAMENTE");
-          }
-          selectors.loadingElement.style.display = "none";
-          Culqi3DS.reset();
-      } else {
-          selectors.paymentFailElement.style.display = "block";
-          Culqi3DS.reset();
-      }
-
-
+    }
 
     if (error) {
       resultdiv("Error, revisa la consola");
