@@ -22,8 +22,15 @@ app = Flask(__name__)
 api = Api(app)
 public_key = "pk_live_53d22e51b61a43d1"
 private_key = "sk_live_LoSAl6rqTInlzPSJ"
-rsa_id = 
-rsa_public_key = 
+rsa_id = "2ab335ad-c40d-4375-8dad-3ea315de23b0"
+rsa_public_key = (
+    "-----BEGIN PUBLIC KEY-----\n"
+    "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9hD00BnivDj73/1SKZw5AyQvw\n"
+    "FpvR/DKzW7Jqg1iwFWXrX6k1r57qZJH2wF1tZ9T3wTyw1we6BYgwPNRVC1IXe+E8\n"
+    "B6xAWG8ta7BCZK/a6IFL+l9Q9BhkHBeVTD7qGEfCjhnB7QtyrTQwmytoNBKk1Tl7\n"
+    "kbz8NO7jeiUxkZm75wIDAQAB\n"
+    "-----END PUBLIC KEY-----"
+)
 port = 5100
 
 
@@ -81,12 +88,14 @@ def generatecutomer():
 @app.route('/culqi/generateCharge',  methods=['POST'])
 def generatecharge():
     body = request.json
-    headers = dict(request.headers)
     version = __version__
 
     culqi = Culqi(public_key, private_key)
     charge = Charge(client=culqi)
-    card = charge.create(body, **headers)
+    options = {}
+    options["rsa_public_key"] = rsa_id
+    options["rsa_id"] = rsa_public_key
+    card = charge.create(body, **options)
     print(card)
     response = app.response_class(
         response=json.dumps(card["data"]),

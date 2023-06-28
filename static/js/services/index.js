@@ -30,11 +30,9 @@ class Service {
     console.log(JSON.stringify(bodyCard));
     return this.#http({ endPoint: "culqi/generateCards", body:bodyCard});
   }
-  createCharge = async (bodyCharge, options) => {
-    console.log("Entro createCharge");
-    console.log(options);
+  createCharge = async (bodyCharge) => {
     console.log(JSON.stringify(bodyCharge));
-    return this.#http({ endPoint: "culqi/generateCharge", body:bodyCharge, headers:options});
+    return this.#http({ endPoint: "culqi/generateCharge", body:bodyCharge});
   }
 }
 export default Service;
