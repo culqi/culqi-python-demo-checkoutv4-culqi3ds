@@ -37,45 +37,5 @@ export const generateChargeImpl = async ({tokenId,  email, parameters3DS = null}
     console.log("json");
     console.log(data);
 
-
-
-    if(config.RSA_ID === '' && config.RSA_PUBLIC_KEY === '')
-    {
-     return service.createCharge(parameters3DS ? { ...data, authentication_3DS: { ...parameters3DS } } : data);
-    }
-    else
-    {
-      var options = {
-        xculqirsaid : config.RSA_ID,
-        rsapublickey : config.RSA_PUBLIC_KEY
-      };
-      console.log("Options");
-      console.log(options);
-      return service.createCharge(parameters3DS ? { ...data, authentication_3DS: { ...parameters3DS } } : data, options);
-    }
-
-
+    return service.createCharge(parameters3DS ? { ...data, authentication_3DS: { ...parameters3DS } } : data);
 }
-
-
-export const generateChargeEncryptImpl = async ({
-                                           email,
-                                           tokenId,
-                                           deviceId,
-                                           parameters3DS = null,
-                                         }) => {
-  const bodyRequest = {
-    amount: config.TOTAL_AMOUNT,
-    currency_code: config.CURRENCY,
-    email: email,
-    source_id: tokenId,
-    antifraud_details: {
-      device_finger_print_id: deviceId,
-    },
-  };
-  return service.generateChargeEncrypt(
-      parameters3DS
-          ? { ...bodyRequest, authentication_3DS: { ...parameters3DS } }
-          : bodyRequest
-  );
-};

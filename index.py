@@ -22,8 +22,10 @@ app = Flask(__name__)
 api = Api(app)
 public_key = "INSERTE_SU_LLAVE_PUBLICA"
 private_key = "INSERTE_SU_LLAVE_PRIVADA"
-rsa_id = 
-rsa_public_key = 
+rsa_id = "INSERTE_SU_RSA_ID"
+rsa_public_key = (
+    "INSERTE_SU_LLAVE_RSA"
+)
 port = 5100
 
 
@@ -81,12 +83,14 @@ def generatecutomer():
 @app.route('/culqi/generateCharge',  methods=['POST'])
 def generatecharge():
     body = request.json
-    headers = dict(request.headers)
     version = __version__
 
     culqi = Culqi(public_key, private_key)
     charge = Charge(client=culqi)
-    card = charge.create(body, **headers)
+    options = {}
+    options["rsa_public_key"] = rsa_id
+    options["rsa_id"] = rsa_public_key
+    card = charge.create(body, **options)
     print(card)
     response = app.response_class(
         response=json.dumps(card["data"]),
