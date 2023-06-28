@@ -95,7 +95,11 @@ def generatecharge():
     options = {}
     options["rsa_public_key"] = rsa_id
     options["rsa_id"] = rsa_public_key
-    card = charge.create(body, **options)
+    if len(rsa_id) == 0:
+        card = charge.create(body)
+    else:
+        card = charge.create(body, **options)
+
     print(card)
     response = app.response_class(
         response=json.dumps(card["data"]),
