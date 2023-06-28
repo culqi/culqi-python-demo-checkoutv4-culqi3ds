@@ -3,7 +3,11 @@ import culqiConfig from "./config/checkout.js";
 import "./config/culqi3ds.js";
 import { generateChargeImpl } from "./services/impl/index.js";
 
-culqiConfig();
+const jsonParams =
+{
+  installments: true
+};
+culqiConfig(jsonParams);
 
 const deviceId = await Culqi3DS.generateDevice();
 

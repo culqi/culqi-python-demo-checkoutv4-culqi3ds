@@ -1,6 +1,6 @@
 import config from "./index.js";
 
-const culqiConfig = () => {
+const culqiConfig = (jsonParams) => {
 
 Culqi.publicKey = config.PUBLIC_KEY;
 
@@ -18,7 +18,7 @@ Culqi.publicKey = config.PUBLIC_KEY;
 
   Culqi.options({
     lang: 'auto',
-    installments: true,
+    installments: jsonParams.installments,
     paymentMethods: {
       tarjeta: true,
       bancaMovil: false,

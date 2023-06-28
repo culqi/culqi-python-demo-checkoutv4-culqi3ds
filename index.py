@@ -22,6 +22,8 @@ app = Flask(__name__)
 api = Api(app)
 public_key = "INSERTE_SU_LLAVE_PUBLICA"
 private_key = "INSERTE_SU_LLAVE_PRIVADA"
+rsa_id = 
+rsa_public_key = 
 port = 5100
 
 
