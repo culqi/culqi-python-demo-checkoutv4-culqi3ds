@@ -22,6 +22,8 @@ app = Flask(__name__)
 api = Api(app)
 public_key = "pk_live_53d22e51b61a43d1"
 private_key = "sk_live_LoSAl6rqTInlzPSJ"
+rsa_id = 
+rsa_public_key = 
 port = 5100
 
 
