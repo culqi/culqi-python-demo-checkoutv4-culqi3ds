@@ -84,9 +84,6 @@ def generatecharge():
 
     culqi = Culqi(public_key, private_key)
     charge = Charge(client=culqi)
-    options = {}
-    options["rsa_public_key"] = ""
-    options["rsa_id"] = ""
     card = charge.create(body, **headers)
     print(card)
     response = app.response_class(
