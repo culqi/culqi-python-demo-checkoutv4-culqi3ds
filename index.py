@@ -79,11 +79,15 @@ def generatecutomer():
 @app.route('/culqi/generateCharge',  methods=['POST'])
 def generatecharge():
     body = request.json
+    headers = dict(request.headers)
     version = __version__
 
     culqi = Culqi(public_key, private_key)
     charge = Charge(client=culqi)
-    card = charge.create(body)
+    options = {}
+    options["rsa_public_key"] = ""
+    options["rsa_id"] = ""
+    card = charge.create(body, **headers)
     print(card)
     response = app.response_class(
         response=json.dumps(card["data"]),
@@ -91,6 +95,8 @@ def generatecharge():
         mimetype='application/json'
     )
     return response
+
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=port)

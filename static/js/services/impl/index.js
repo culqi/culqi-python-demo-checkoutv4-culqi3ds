@@ -19,6 +19,7 @@ export const generateCardImpl = async ({ customerId, email, tokenId, deviceId, p
     console.log("json jdd");
     console.log(data);
 
+
   return service.createCard(parameters3DS ? { ...data, authentication_3DS: { ...parameters3DS } } : data);
 }
 
@@ -36,7 +37,24 @@ export const generateChargeImpl = async ({tokenId,  email, parameters3DS = null}
     console.log("json");
     console.log(data);
 
-  return service.createCharge(parameters3DS ? { ...data, authentication_3DS: { ...parameters3DS } } : data);
+
+
+    if(config.RSA_ID === '' && config.RSA_PUBLIC_KEY === '')
+    {
+     return service.createCharge(parameters3DS ? { ...data, authentication_3DS: { ...parameters3DS } } : data);
+    }
+    else
+    {
+      var options = {
+        xculqirsaid : config.RSA_ID,
+        rsapublickey : config.RSA_PUBLIC_KEY
+      };
+      console.log("Options");
+      console.log(options);
+      return service.createCharge(parameters3DS ? { ...data, authentication_3DS: { ...parameters3DS } } : data, options);
+    }
+
+
 }
 
 

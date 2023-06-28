@@ -11,8 +11,8 @@ Culqi.publicKey = config.PUBLIC_KEY;
     title: 'TAXI MAXIN', //Obligatorio para yape
     culqiclient: 'magento',
     culqiclientversion: '3.0',
-    xculqirsaid: 'INSERTE_SU_RSA_ID',
-    rsapublickey: 'INSERTE_SU_LLAVE_RSA',
+    xculqirsaid: config.RSA_ID,
+    rsapublickey: config.RSA_PUBLIC_KEY,
     excludencryptoperations: [''],
   });
 

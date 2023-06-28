@@ -2,6 +2,8 @@ class Service {
   #BASE_URL = "http://localhost:5100";
 
   #http = async ({ endPoint, method = 'POST', body = {}, headers = {} }) => {
+    console.log("Llego a http");
+    console.log(headers);
     const authentication_3DS = body.authentication_3DS ? {
       eci: body.authentication_3DS.eci,
       xid: body.authentication_3DS.xid,
@@ -28,10 +30,11 @@ class Service {
     console.log(JSON.stringify(bodyCard));
     return this.#http({ endPoint: "culqi/generateCards", body:bodyCard});
   }
-  createCharge = async (bodyCharge) => {
-    console.log("Entro createCard");
+  createCharge = async (bodyCharge, options) => {
+    console.log("Entro createCharge");
+    console.log(options);
     console.log(JSON.stringify(bodyCharge));
-    return this.#http({ endPoint: "culqi/generateCharge", body:bodyCharge});
+    return this.#http({ endPoint: "culqi/generateCharge", body:bodyCharge, headers:options});
   }
 }
 export default Service;
