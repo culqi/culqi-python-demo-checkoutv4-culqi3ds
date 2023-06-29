@@ -23,9 +23,7 @@ api = Api(app)
 public_key = "INSERTE_SU_LLAVE_PUBLICA"
 private_key = "INSERTE_SU_LLAVE_PRIVADA"
 rsa_id = "INSERTE_SU_RSA_ID"
-rsa_public_key = (
-    "INSERTE_SU_LLAVE_RSA"
-)
+rsa_public_key = "INSERTE_SU_LLAVE_RSA"
 port = 5100
 
 
@@ -87,6 +85,7 @@ def generatecharge():
 
     culqi = Culqi(public_key, private_key)
     charge = Charge(client=culqi)
+    print (rsa_public_key)
     options = {}
     options["rsa_public_key"] = rsa_public_key
     options["rsa_id"] = rsa_id
