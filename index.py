@@ -20,17 +20,15 @@ from culqi.resources import Charge
 
 app = Flask(__name__)
 api = Api(app)
-public_key = "pk_live_53d22e51b61a43d1"
-private_key = "sk_live_LoSAl6rqTInlzPSJ"
+public_key = "pk_test_90667d0a57d45c48"
+private_key = "sk_test_1573b0e8079863ff"
 rsa_id = "2ab335ad-c40d-4375-8dad-3ea315de23b0"
-rsa_public_key = (
-    "-----BEGIN PUBLIC KEY-----\n"
-    "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9hD00BnivDj73/1SKZw5AyQvw\n"
-    "FpvR/DKzW7Jqg1iwFWXrX6k1r57qZJH2wF1tZ9T3wTyw1we6BYgwPNRVC1IXe+E8\n"
-    "B6xAWG8ta7BCZK/a6IFL+l9Q9BhkHBeVTD7qGEfCjhnB7QtyrTQwmytoNBKk1Tl7\n"
-    "kbz8NO7jeiUxkZm75wIDAQAB\n"
-    "-----END PUBLIC KEY-----"
-)
+rsa_public_key = "-----BEGIN PUBLIC KEY-----\n" + \
+                              "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDuCmwMoEzvBk++m4rZUlZL4pDD\n" + \
+                              "W++NV1tSjAOJsRv5Ermg3/ygjINNhi1gfMbfSiWloc85tJBZhXzD7JpOd7JxOOg7\n" + \
+                              "CicgbZKGF/sq2geoVw4+n4j4vUZx0+a1PgStwR+BeZn2I+eAn9xOrHJD6/baJqIO\n" + \
+                              "/ifGJ1e5jHeQXIR4IwIDAQAB\n" + \
+                              "-----END PUBLIC KEY-----"
 port = 5100
 
 
@@ -92,6 +90,7 @@ def generatecharge():
 
     culqi = Culqi(public_key, private_key)
     charge = Charge(client=culqi)
+    print (rsa_public_key)
     options = {}
     options["rsa_public_key"] = rsa_public_key
     options["rsa_id"] = rsa_id
