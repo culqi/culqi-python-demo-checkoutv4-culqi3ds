@@ -93,8 +93,8 @@ def generatecharge():
     culqi = Culqi(public_key, private_key)
     charge = Charge(client=culqi)
     options = {}
-    options["rsa_public_key"] = rsa_id
-    options["rsa_id"] = rsa_public_key
+    options["rsa_public_key"] = rsa_public_key
+    options["rsa_id"] = rsa_id
     if len(rsa_id) == 0:
         card = charge.create(body)
     else:
