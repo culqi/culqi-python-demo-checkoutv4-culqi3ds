@@ -11,11 +11,11 @@ path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
 print(sys.path)
 
-from culqi import __version__
-from culqi.client import Culqi
-from culqi.resources import Card
-from culqi.resources import Customer
-from culqi.resources import Charge
+from culqi2 import __version__
+from culqi2.client import Culqi
+from culqi2.resources import Card
+from culqi2.resources import Customer
+from culqi2.resources import Charge
 
 
 app = Flask(__name__)
@@ -86,6 +86,7 @@ def generatecharge():
     culqi = Culqi(public_key, private_key)
     charge = Charge(client=culqi)
     print (rsa_public_key)
+    print (rsa_id)
     options = {}
     options["rsa_public_key"] = rsa_public_key
     options["rsa_id"] = rsa_id

@@ -5,7 +5,11 @@ const service = new Service();
 
 export const generateCardImpl = async ({ customerId, email, tokenId, deviceId, parameters3DS = null }) => {
   var data_fraud = {
-      device_finger_print_id: deviceId
+     first_name : $('#f_name').val(),
+     last_name: $('#l_name').val(),
+     email: email,
+     phone_number: $('#phone').val(),
+     device_finger_print_id: deviceId
   }
 
   var data = {
@@ -23,9 +27,14 @@ export const generateCardImpl = async ({ customerId, email, tokenId, deviceId, p
   return service.createCard(parameters3DS ? { ...data, authentication_3DS: { ...parameters3DS } } : data);
 }
 
-export const generateChargeImpl = async ({tokenId,  email, parameters3DS = null}) => {
+export const generateChargeImpl = async ({tokenId,  email, deviceId, parameters3DS = null}) => {
   var data_fraud = {
-   phone_number: "961778965"
+     first_name : $('#f_name').val(),
+     last_name: $('#l_name').val(),
+     email: email,
+     phone_number: $('#phone').val(),
+     device_finger_print_id: deviceId
+
 }
   var data = {
     amount : config.TOTAL_AMOUNT,
