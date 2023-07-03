@@ -11,23 +11,23 @@ path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
 print(sys.path)
 
-from culqi import __version__
-from culqi.client import Culqi
-from culqi.resources import Card
-from culqi.resources import Customer
-from culqi.resources import Charge
+from culqi2 import __version__
+from culqi2.client import Culqi
+from culqi2.resources import Card
+from culqi2.resources import Customer
+from culqi2.resources import Charge
 
 
 app = Flask(__name__)
 api = Api(app)
-public_key = "pk_test_90667d0a57d45c48"
-private_key = "sk_test_1573b0e8079863ff"
-rsa_id = "2ab335ad-c40d-4375-8dad-3ea315de23b0"
+public_key = "pk_test_e94078b9b248675d"
+private_key = "sk_test_c2267b5b262745f0"
+rsa_id = "de35e120-e297-4b96-97ef-10a43423ddec"
 rsa_public_key = "-----BEGIN PUBLIC KEY-----\n" + \
-                              "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDuCmwMoEzvBk++m4rZUlZL4pDD\n" + \
-                              "W++NV1tSjAOJsRv5Ermg3/ygjINNhi1gfMbfSiWloc85tJBZhXzD7JpOd7JxOOg7\n" + \
-                              "CicgbZKGF/sq2geoVw4+n4j4vUZx0+a1PgStwR+BeZn2I+eAn9xOrHJD6/baJqIO\n" + \
-                              "/ifGJ1e5jHeQXIR4IwIDAQAB\n" + \
+                              "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDswQycch0x/7GZ0oFojkWCYv+g\n" + \
+                              "r5CyfBKXc3Izq+btIEMCrkDrIsz4Lnl5E3FSD7/htFn1oE84SaDKl5DgbNoev3pM\n" + \
+                              "C7MDDgdCFrHODOp7aXwjG8NaiCbiymyBglXyEN28hLvgHpvZmAn6KFo0lMGuKnz8\n" + \
+                              "iuTfpBl6HpD6+02SQIDAQAB\n" + \
                               "-----END PUBLIC KEY-----"
 port = 5100
 
@@ -91,6 +91,7 @@ def generatecharge():
     culqi = Culqi(public_key, private_key)
     charge = Charge(client=culqi)
     print (rsa_public_key)
+    print (rsa_id)
     options = {}
     options["rsa_public_key"] = rsa_public_key
     options["rsa_id"] = rsa_id
