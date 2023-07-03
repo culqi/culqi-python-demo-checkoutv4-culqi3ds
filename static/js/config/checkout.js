@@ -8,9 +8,8 @@ Culqi.publicKey = config.PUBLIC_KEY;
   Culqi.settings({
     currency: config.CURRENCY,
     amount: config.TOTAL_AMOUNT,
+    order: jsonParams.orderId,
     title: 'TAXI MAXIN', //Obligatorio para yape
-    culqiclient: 'magento',
-    culqiclientversion: '3.0',
     xculqirsaid: config.RSA_ID,
     rsapublickey: config.RSA_PUBLIC_KEY,
     excludencryptoperations: [''],
@@ -21,11 +20,11 @@ Culqi.publicKey = config.PUBLIC_KEY;
     installments: jsonParams.installments,
     paymentMethods: {
       tarjeta: true,
-      bancaMovil: false,
-      agente: false,
-      billetera: false,
-      cuotealo: false,
-      yape: false,
+      bancaMovil: true,
+      agente: true,
+      billetera: true,
+      cuotealo: true,
+      yape: true,
     },
     style: {
       //logo: 'https://culqi.com/LogoCulqi.png',
