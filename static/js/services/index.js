@@ -1,5 +1,6 @@
+import config  from "../config/index.js"
 class Service {
-  #BASE_URL = "http://localhost:5100";
+  #BASE_URL = config.URL_BASE;
 
   #http = async ({ endPoint, method = 'POST', body = {}, headers = {} }) => {
     console.log("Llego a http");
@@ -23,6 +24,30 @@ class Service {
     } catch (err) {
       return { statusCode: 502, data: null }
     }
+  }
+
+  #http2 = async ({ endPoint, method = "POST", body = {}, headers = {} }) => {
+    let statusCode = 502; 
+    try {
+        const response = await $.ajax({
+          type: 'POST',
+          url: `${this.#BASE_URL}/${endPoint}`,
+          headers: { "Content-Type": "application/json", ...headers },
+          data: JSON.stringify(body),
+          success: function (data, status, xhr) {
+            statusCode = xhr.status;
+            //response = data;
+          }
+        });
+        const responseJSON = await response;console.log('statusCode',statusCode);
+        return { statusCode: statusCode, data: responseJSON }
+      } catch (err) {
+        return { statusCode: statusCode, data: null }
+      }
+    }
+
+  createOrder = async (bodyOrder) => {
+    return this.#http2({ endPoint: "generateOrder", body: bodyOrder });
   }
 
   createCard = async (bodyCard) => {
