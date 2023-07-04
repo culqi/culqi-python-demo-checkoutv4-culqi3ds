@@ -1,16 +1,17 @@
+//integracion
 export default Object.freeze({
-  TOTAL_AMOUNT: 700,
+  TOTAL_AMOUNT: 600,
   CURRENCY: "PEN",
   PUBLIC_KEY: "pk_test_e94078b9b248675d",
-  RSA_ID: "14d72544-9f19-4cf7-9679-4a508f2c3264",
-  RSA_PUBLIC_KEY: "-----BEGIN PUBLIC KEY-----\n"
-			+ "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiJchDW0kULLY4FCODRtwxBNZQ\n"
-			+ "lu2vK0XDKcOAme31fwzBq8nvMEGtvwIbdMl6cyiLjxEiBk2Dm+WIwgxKmn1Hp5Fc\n"
-			+ "llHTdm3f6r8mLZUYdEqOBgapGTykHkvOfGjbMhOJjvXkW1j2vXBoNzjZL1gMcww3\n"
-			+ "cZYYpBg6COvmC8qLrQIDAQAB\n"
-			+ "-----END PUBLIC KEY-----",
   COUNTRY_CODE: "PE",
-  URL_BASE: "http://localhost:5100",
+  RSA_ID: "2ab335ad-c40d-4375-8dad-3ea315de23b0",
+  RSA_PUBLIC_KEY: '-----BEGIN PUBLIC KEY-----'+
+  'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9hD00BnivDj73/1SKZw5AyQvw'+
+  'FpvR/DKzW7Jqg1iwFWXrX6k1r57qZJH2wF1tZ9T3wTyw1we6BYgwPNRVC1IXe+E8'+
+  'B6xAWG8ta7BCZK/a6IFL+l9Q9BhkHBeVTD7qGEfCjhnB7QtyrTQwmytoNBKk1Tl7'+
+  'kbz8NO7jeiUxkZm75wIDAQAB'+
+  '-----END PUBLIC KEY-----',
+  URL_BASE: "http://localhost:8080",
 });
 
 export const customerInfo = {
