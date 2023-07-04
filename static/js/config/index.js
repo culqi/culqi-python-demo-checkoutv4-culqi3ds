@@ -1,11 +1,12 @@
+//integracion
 export default Object.freeze({
-  TOTAL_AMOUNT: 700,
+  TOTAL_AMOUNT: 600,
   CURRENCY: "PEN",
   PUBLIC_KEY: "INSERTE_SU_LLAVE_PUBLICA",
-  RSA_ID: "INSERTE_SU_RSA_ID",
-  RSA_PUBLIC_KEY: "INSERTE_SU_LLAVE_RSA",
   COUNTRY_CODE: "PE",
-  URL_BASE: "http://localhost:5100",
+  RSA_ID: "INSERTE_SU_RSA_ID",
+  RSA_PUBLIC_KEY: 'INSERTE_SU_LLAVE_RSA',
+  URL_BASE: "http://localhost:8080",
 });
 
 export const customerInfo = {
