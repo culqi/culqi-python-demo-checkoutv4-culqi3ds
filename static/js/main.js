@@ -65,14 +65,14 @@ window.addEventListener(
           statusCode = responseCard.statusCode;
         }
 
-        if (statusCode === 201) {
+        if (statusCode === 201 || statusCode === 200) {
           if (objResponse == "charge" || objResponse == "card") {
             $("#response_card").text("OPERACIÓN REALIZADA EXITOSAMENTE");
           }
           selectors.loadingElement.style.display = "none";
           Culqi3DS.reset();
         } else {
-          selectors.paymentFailElement.style.display = "block";
+         // selectors.paymentFailElement.style.display = "block";
           Culqi3DS.reset();
         }
       }
@@ -92,7 +92,7 @@ window.culqi = async () => {
     Culqi.close();
     tokenId = Culqi.token.id;
     email = Culqi.token.email;
-    selectors.loadingElement.style.display = "block";
+    //selectors.loadingElement.style.display = "block";
 
 	let statusCode = null;
     let objResponse = null;
