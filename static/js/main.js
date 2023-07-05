@@ -112,22 +112,15 @@ window.culqi = async () => {
       statusCode = responseCard.statusCode;
     }
     if (statusCode === 200) {
-		if(objResponse.action_code === "REVIEW"){
 			validationInit3DS({ email, statusCode, tokenId });
-		}else{
-			$("#response_card").text("ERROR AL REALIZAR LA OPERACIÓN");
-		}
-	   } else if (statusCode === 201) {
+	 } else if (statusCode === 201) {
 			$("#response_card").text("OPERACIÓN EXITOSA - SIN 3DS");
 	      	Culqi3DS.reset();
-       } else {
+     } else {
 	      $("#response_card").text("OPERACIÓN FALLIDA - SIN 3DS");
 	      	Culqi3DS.reset();
-	   }
-  } else {
-    console.log(Culqi.error);
-    alert(Culqi.error.user_message);
-  }
+	 }
+
 };
 
 const validationInit3DS = ({ statusCode, email, tokenId }) => {
