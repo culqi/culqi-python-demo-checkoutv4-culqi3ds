@@ -103,7 +103,7 @@ def generatecharge():
     print(card)
     response = app.response_class(
         response=json.dumps(card["data"]),
-        status=200,
+        status=201,
         mimetype='application/json'
     )
     return response

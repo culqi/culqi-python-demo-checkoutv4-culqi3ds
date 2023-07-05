@@ -65,7 +65,7 @@ window.addEventListener(
           statusCode = responseCard.statusCode;
         }
 
-        if (statusCode === 201 || statusCode === 200) {
+        if (statusCode === 201) {
           if (objResponse == "charge" || objResponse == "card") {
             $("#response_card").text("OPERACIÓN REALIZADA EXITOSAMENTE");
           }
