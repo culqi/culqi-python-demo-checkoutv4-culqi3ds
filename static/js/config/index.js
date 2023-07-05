@@ -11,7 +11,7 @@ export default Object.freeze({
   'B6xAWG8ta7BCZK/a6IFL+l9Q9BhkHBeVTD7qGEfCjhnB7QtyrTQwmytoNBKk1Tl7'+
   'kbz8NO7jeiUxkZm75wIDAQAB'+
   '-----END PUBLIC KEY-----',
-  URL_BASE: "http://localhost:8080",
+  URL_BASE: "http://localhost:5100",
 });
 
 export const customerInfo = {
