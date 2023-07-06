@@ -39,7 +39,7 @@ def home():
 def card():
     return render_template('index-card.html')
 
-@app.route('/culqi/generateCards',  methods=['POST'])
+@app.route('/culqi/createCard',  methods=['POST'])
 def generatecard():
     body = request.json
     version = __version__
