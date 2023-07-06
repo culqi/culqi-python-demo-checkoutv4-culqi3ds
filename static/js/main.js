@@ -64,7 +64,7 @@ window.addEventListener(
           objResponse = responseCard.data.object;
           statusCode = responseCard.statusCode;
         }
-
+          console.log("Llego aqui con el statuscode: "+statusCode);
         if (statusCode === 201) {
           if (objResponse == "charge" || objResponse == "card") {
             $("#response_card").text("OPERACIÓN REALIZADA EXITOSAMENTE");

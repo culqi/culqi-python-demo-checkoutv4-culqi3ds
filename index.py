@@ -22,8 +22,8 @@ app = Flask(__name__)
 api = Api(app)
 public_key = "INSERTE_SU_LLAVE_PUBLICA"
 private_key = "INSERTE_SU_LLAVE_PRIVADA"
-rsa_id = "INSERTE_SU_RSA_ID"
-rsa_public_key = "INSERTE_SU_LLAVE_RSA"
+rsa_id = ""
+rsa_public_key = ""
 port = 5100
 
 
@@ -51,7 +51,7 @@ def generatecard():
     card = card.create(body)
     response = app.response_class(
         response=json.dumps(card["data"]),
-        status=200,
+        status=json.dumps(card["status"]),
         mimetype='application/json'
     )
     return response
@@ -74,7 +74,7 @@ def generatecutomer():
     card = customer.create(data)
     response = app.response_class(
         response=json.dumps(card["data"]),
-        status=200,
+        status=json.dumps(card["status"]),
         mimetype='application/json'
     )
     return response
@@ -98,7 +98,7 @@ def generatecharge():
     print(card)
     response = app.response_class(
         response=json.dumps(card["data"]),
-        status=201,
+        status=json.dumps(card["status"]),
         mimetype='application/json'
     )
     return response
