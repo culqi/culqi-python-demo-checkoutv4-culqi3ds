@@ -55,7 +55,7 @@ def generatecard():
         mimetype='application/json'
     )
     return response
-@app.route('/culqi/generateCustomer',  methods=['POST'])
+@app.route('/culqi/createCustomer',  methods=['POST'])
 def generatecutomer():
     body = request.json
     version = __version__
