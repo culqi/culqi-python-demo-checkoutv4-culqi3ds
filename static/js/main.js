@@ -144,9 +144,11 @@ const validationInit3DS = ({ statusCode, email, tokenId }) => {
 };
 
 async function createCustomer() {
+
   const dataCustomer = await createCustomerImpl({
     ...customerInfo,
   });
+  console.log("Llego a createCustomer");
   $("#response_customer").text(dataCustomer.data.id);
   console.log(dataCustomer);
 }

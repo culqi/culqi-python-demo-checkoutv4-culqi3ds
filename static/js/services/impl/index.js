@@ -4,6 +4,14 @@ import config,{ customerInfo } from "../../config/index.js";
 const service = new Service();
 
 export const generateOrderImpl = async () => {
+
+var currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() + 1);
+  var epochMilliseconds = currentDate.getTime();
+  var epochSeconds = Math.floor(epochMilliseconds / 1000);
+  console.log(epochSeconds);
+
+
   const bodyRequest = {
     amount: config.TOTAL_AMOUNT,
     currency_code: config.CURRENCY,
@@ -15,6 +23,7 @@ export const generateOrderImpl = async () => {
       email: customerInfo.email,
       phone_number: customerInfo.phone
     },
+    expiration_date: epochSeconds
   }
   return service.createOrder(bodyRequest);
 }

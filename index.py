@@ -6,6 +6,7 @@ from uuid import uuid4
 from pathlib import Path
 import sys
 from flask import json
+from flask_cors import CORS
 
 path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
@@ -13,13 +14,15 @@ print(sys.path)
 
 from culqi2 import __version__
 from culqi2.client import Culqi
-from culqi2.resources import Card
+from culqi2.resources import Card, Order
 from culqi2.resources import Customer
 from culqi2.resources import Charge
 
 
 app = Flask(__name__)
 api = Api(app)
+
+CORS(app)
 public_key = "pk_test_e94078b9b248675d"
 private_key = "sk_test_c2267b5b262745f0"
 rsa_id = ""
@@ -103,6 +106,22 @@ def generatecharge():
     )
     return response
 
+@app.route('/culqi/generateOrder',  methods=['POST'])
+def generateorder():
+    body = request.json
+    version = __version__
+
+    culqi = Culqi(public_key, private_key)
+    order = Order(client=culqi)
+    card = order.create(body)
+
+    print(card)
+    response = app.response_class(
+        response=json.dumps(card["data"]),
+        status=json.dumps(card["status"]),
+        mimetype='application/json'
+    )
+    return response
 
 
 if __name__ == '__main__':
