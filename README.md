@@ -23,6 +23,8 @@ Ejecuta los siguientes comandos:
 py -m pip install culqi
 py -m pip install flask
 py -m pip install flask_restful
+py -m pip install pycryptodome
+py -m pip install flask_cors
 ```
 
 ## Configuración backend
