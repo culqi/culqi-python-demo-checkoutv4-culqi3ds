@@ -23,14 +23,33 @@ Ejecuta los siguientes comandos:
 py -m pip install culqi
 py -m pip install flask
 py -m pip install flask_restful
+py -m pip install pycryptodome
+py -m pip install flask_cors
 ```
 
-## Configuración
+## Configuración backend
 
 En el archivo **index.py** coloca tus llaves:
 
 - public_key = "`TU LLAVE PK DE INTEGRACIÓN`"
 - private_key = "`TU LLAVE SK DE INTEGRACIÓN`"
+- rsa_id = "`TU ID DE TU LLAVE PÚBLICA RSA`"
+- rsa_private_key = "`TU LLAVE PÚBLICA RSA`"
+
+## Configuración frontend
+
+Para configurar los datos del cargo, pk del comercio y datos del cliente se tiene que modificar en el archivo `static/js/config/index.js`.
+
+```js
+export default Object.freeze({
+    TOTAL_AMOUNT: monto de pago,
+    CURRENCY: tipo de moneda,
+    PUBLIC_KEY: llave publica del comercio (pk_test_xxxxx),
+    RSA_ID: Id de la llave RSA,
+    RSA_PUBLIC_KEY: Llave pública RSA que sirve para encriptar el payload de los servicios del checkout,
+    COUNTRY_CODE: iso code del país(Ejemplo PE)
+});
+```
 
 ## Inicializar la demo
 

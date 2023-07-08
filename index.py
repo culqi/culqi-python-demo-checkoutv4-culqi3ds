@@ -6,22 +6,27 @@ from uuid import uuid4
 from pathlib import Path
 import sys
 from flask import json
+from flask_cors import CORS
 
 path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
 print(sys.path)
 
-from culqi import __version__
-from culqi.client import Culqi
-from culqi.resources import Card
-from culqi.resources import Customer
-from culqi.resources import Charge
+from culqi2 import __version__
+from culqi2.client import Culqi
+from culqi2.resources import Card, Order
+from culqi2.resources import Customer
+from culqi2.resources import Charge
 
 
 app = Flask(__name__)
 api = Api(app)
-public_key = "pk_test_90667d0a57d45c48"
-private_key = "sk_test_1573b0e8079863ff"
+
+CORS(app)
+public_key = "pk_test_e94078b9b248675d"
+private_key = "sk_test_c2267b5b262745f0"
+rsa_id = ""
+rsa_public_key = ""
 port = 5100
 
 
@@ -37,7 +42,7 @@ def home():
 def card():
     return render_template('index-card.html')
 
-@app.route('/culqi/generateCards',  methods=['POST'])
+@app.route('/culqi/createCard',  methods=['POST'])
 def generatecard():
     body = request.json
     version = __version__
@@ -49,11 +54,11 @@ def generatecard():
     card = card.create(body)
     response = app.response_class(
         response=json.dumps(card["data"]),
-        status=200,
+        status=json.dumps(card["status"]),
         mimetype='application/json'
     )
     return response
-@app.route('/culqi/generateCustomer',  methods=['POST'])
+@app.route('/culqi/createCustomer',  methods=['POST'])
 def generatecutomer():
     body = request.json
     version = __version__
@@ -72,7 +77,7 @@ def generatecutomer():
     card = customer.create(data)
     response = app.response_class(
         response=json.dumps(card["data"]),
-        status=200,
+        status=json.dumps(card["status"]),
         mimetype='application/json'
     )
     return response
@@ -83,14 +88,41 @@ def generatecharge():
 
     culqi = Culqi(public_key, private_key)
     charge = Charge(client=culqi)
-    card = charge.create(body)
+    print (rsa_public_key)
+    print (rsa_id)
+    options = {}
+    options["rsa_public_key"] = rsa_public_key
+    options["rsa_id"] = rsa_id
+    if len(rsa_id) == 0:
+        card = charge.create(body)
+    else:
+        card = charge.create(body, **options)
+
     print(card)
     response = app.response_class(
         response=json.dumps(card["data"]),
-        status=200,
+        status=json.dumps(card["status"]),
         mimetype='application/json'
     )
     return response
+
+@app.route('/culqi/generateOrder',  methods=['POST'])
+def generateorder():
+    body = request.json
+    version = __version__
+
+    culqi = Culqi(public_key, private_key)
+    order = Order(client=culqi)
+    card = order.create(body)
+
+    print(card)
+    response = app.response_class(
+        response=json.dumps(card["data"]),
+        status=json.dumps(card["status"]),
+        mimetype='application/json'
+    )
+    return response
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=port)
