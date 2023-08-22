@@ -12,11 +12,11 @@ path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
 print(sys.path)
 
-from culqi2 import __version__
-from culqi2.client import Culqi
-from culqi2.resources import Card, Order
-from culqi2.resources import Customer
-from culqi2.resources import Charge
+from culqi import __version__
+from culqi.client import Culqi
+from culqi.resources import Card, Order
+from culqi.resources import Customer
+from culqi.resources import Charge
 
 
 app = Flask(__name__)
