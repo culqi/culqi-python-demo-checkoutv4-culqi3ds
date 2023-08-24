@@ -25,8 +25,8 @@ api = Api(app)
 CORS(app)
 public_key = "INSERTE_SU_LLAVE_PUBLICA"
 private_key = "INSERTE_SU_LLAVE_PRIVADA"
-rsa_id = ""
-rsa_public_key = ""
+rsa_id = "INSERTE_SU_RSA_ID"
+rsa_public_key = "INSERTE_SU_LLAVE_RSA"
 port = 5100
 
 
