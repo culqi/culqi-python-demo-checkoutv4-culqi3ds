@@ -34,7 +34,7 @@ En el archivo **index.py** coloca tus llaves:
 - public_key = "`TU LLAVE PK DE INTEGRACIÓN`"
 - private_key = "`TU LLAVE SK DE INTEGRACIÓN`"
 - rsa_id = "`TU ID DE TU LLAVE PÚBLICA RSA`"
-- rsa_private_key = "`TU LLAVE PÚBLICA RSA`"
+- rsa_public_key = "`TU LLAVE PÚBLICA RSA`"
 
 ## Configuración frontend
 
