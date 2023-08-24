@@ -25,8 +25,13 @@ api = Api(app)
 CORS(app)
 public_key = "pk_test_e94078b9b248675d"
 private_key = "sk_test_c2267b5b262745f0"
-rsa_id = ""
-rsa_public_key = ""
+rsa_id = "de35e120-e297-4b96-97ef-10a43423ddec"
+rsa_public_key = "-----BEGIN PUBLIC KEY-----\n"+\
+        "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDswQycch0x/7GZ0oFojkWCYv+g\n"+\
+        "r5CyfBKXc3Izq+btIEMCrkDrIsz4Lnl5E3FSD7/htFn1oE84SaDKl5DgbNoev3pM\n"+\
+        "C7MDDgdCFrHODOp7aXwjG8NaiCbiymyBglXyEN28hLvgHpvZmAn6KFo0lMGuKnz8\n"+\
+        "HiuTfpBl6HpD6+02SQIDAQAB\n"+\
+        "-----END PUBLIC KEY-----"
 port = 5100
 
 
