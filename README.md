@@ -15,6 +15,8 @@ La demo integra Culqi Python, Checkout V4 , Culqi 3DS y es compatible con la v2.
 
 > Recuerda que las credenciales son enviadas al correo que registraste en el proceso de afiliación.
 
+* Para encriptar el payload debes generar un id y llave RSA ingresando a CulqiPanel > Desarrollo > RSA Keys.
+
 ## Instalación
 
 Ejecuta los siguientes comandos:
