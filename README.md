@@ -20,7 +20,7 @@ La demo integra Culqi Python, Checkout V4 , Culqi 3DS y es compatible con la v2.
 Ejecuta los siguientes comandos:
 
 ```bash
-py -m pip install culqi
+py -m pip install culqi-python-oficial
 py -m pip install flask
 py -m pip install flask_restful
 py -m pip install pycryptodome
@@ -65,3 +65,8 @@ Para poder visualizar el frontend de la demo ingresar a la siguiente URL:
 
 - Para probar cargos: `http://localhost:5100`
 - Para probar creación de cards: `http://localhost:5100/card`
+
+## Documentación
+
+- [Referencia de Documentación](https://docs.culqi.com/)
+- [Referencia de API](https://apidocs.culqi.com/)
