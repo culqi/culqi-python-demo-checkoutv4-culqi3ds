@@ -40,7 +40,7 @@ En el archivo **index.py** coloca tus llaves:
 
 ## Configuración frontend
 
-Para configurar los datos del cargo, pk del comercio y datos del cliente se tiene que modificar en el archivo `static/js/config/index.js`.
+Para configurar los datos del cargo, pk del comercio,rsa_id y rsa_public_key y datos del cliente se tiene que modificar en el archivo `static/js/config/index.js`.
 
 ```js
 export default Object.freeze({
