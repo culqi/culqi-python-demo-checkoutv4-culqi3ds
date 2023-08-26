@@ -71,7 +71,7 @@ window.addEventListener(
           if (objResponse == "charge" || objResponse == "card") {
             $("#response_card").text("OPERACIÓN REALIZADA EXITOSAMENTE");
           }
-          selectors.loadingElement.style.display = "none";
+          //selectors.loadingElement.style.display = "none";
           Culqi3DS.reset();
         } else {
          // selectors.paymentFailElement.style.display = "block";
@@ -81,7 +81,7 @@ window.addEventListener(
 
       if (error) {
         console.log("Ocurrio un error", error);
-        selectors.loadingElement.style.display = "none";
+        //selectors.loadingElement.style.display = "none";
       }
     }
   },
