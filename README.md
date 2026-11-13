@@ -31,25 +31,36 @@ py -m pip install flask_cors
 
 ## Configuración backend
 
-En el archivo **index.py** coloca tus llaves:
+En el archivo **index.py** reemplaza los placeholders con tus propias llaves de prueba:
 
-- public_key = "`TU LLAVE PK DE INTEGRACIÓN`"
-- private_key = "`TU LLAVE SK DE INTEGRACIÓN`"
-- rsa_id = "`TU ID DE TU LLAVE PÚBLICA RSA`"
-- rsa_public_key = "`TU LLAVE PÚBLICA RSA`"
+```python
+public_key = "INSERTE_SU_LLAVE_PUBLICA"
+private_key = "INSERTE_SU_LLAVE_PRIVADA"
+rsa_id = "INSERTE_SU_RSA_ID"
+rsa_public_key = "INSERTE_SU_LLAVE_RSA"
+```
+
+Usa una llave pública `pk_test_` y una llave privada `sk_test_` de tu comercio,
+junto con el ID y la llave pública RSA correspondientes. Los placeholders no son
+credenciales funcionales. No hagas commit de tus llaves ni de archivos configurados
+con ellas. La llave privada solo debe estar en el backend, nunca en el frontend.
+La demo realiza llamadas reales a la API de Culqi; utiliza únicamente datos de prueba.
 
 ## Configuración frontend
 
-Para configurar los datos del cargo, pk del comercio,rsa_id y rsa_public_key y datos del cliente se tiene que modificar en el archivo `static/js/config/index.js`.
+En `static/js/config/index.js` reemplaza `INSERTE_SU_LLAVE_PUBLICA`,
+`INSERTE_SU_RSA_ID` e `INSERTE_SU_LLAVE_RSA` con los mismos valores públicos
+configurados en el backend. Configura también los datos del cargo y del cliente.
 
 ```js
 export default Object.freeze({
-    TOTAL_AMOUNT: monto de pago,
-    CURRENCY: tipo de moneda,
-    PUBLIC_KEY: llave publica del comercio (INSERTE_SU_LLAVE_PUBLICA),
-    RSA_ID: Id de la llave RSA,
-    RSA_PUBLIC_KEY: Llave pública RSA que sirve para encriptar el payload de los servicios del checkout,
-    COUNTRY_CODE: iso code del país(Ejemplo PE)
+    TOTAL_AMOUNT: 600,
+    CURRENCY: "PEN",
+    PUBLIC_KEY: "INSERTE_SU_LLAVE_PUBLICA",
+    RSA_ID: "INSERTE_SU_RSA_ID",
+    RSA_PUBLIC_KEY: "INSERTE_SU_LLAVE_RSA",
+    COUNTRY_CODE: "PE",
+    URL_BASE: "http://localhost:5100"
 });
 ```
 
